@@ -14,34 +14,40 @@ Date: 10/06/2025
 </head>
 
 <body>
-    <header>
+    <header class="site-header">
         <!-- Logo -->
         <img src="images/logo.png" alt="Strike a Chord Logo" class="logo">
         <h1>&#9836; Strike a Chord &#9836;</h1>
-    </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Lessons</a>
-        <a href="#">Instructors</a>
-        <a href="#">Rentals</a>
-        <a href="#">Contact</a>
-    </nav>
+        <!-- Hamburger Menu Button -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <a href="#">Home</a>
+            <a href="#">Lessons</a>
+            <a href="#">Instructors</a>
+            <a href="#">Rentals</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
 
     <!-- Main content -->
     <main>
         <section id="about">
             <h2>About Us</h2>
             <img src="images/about.jpg" alt="Music lesson illustration" class="section-img">
-            <p>Welcome to Strike a Chord. We are a local music store, specializing in lessons and rental equipment.
-                Our mission is to provide world-class instruction with each music lesson.</p>
+            <p>Welcome to Strike a Chord. We are a local music store specializing in lessons and rental equipment.
+               Our mission is to provide world-class instruction with each music lesson.</p>
         </section>
 
         <section id="lessons">
             <h2>Lessons</h2>
             <img src="images/lessons.jpg" alt="Students playing instruments" class="section-img">
             <p>We provide lessons for several musical instruments, including piano, guitar, bass, violin, and drums.
-                Your first two lessons are <strong>FREE</strong>. Contact us today to get started!</p>
+               Your first two lessons are <strong>FREE</strong>. Contact us today to get started!</p>
         </section>
     </main>
 
@@ -49,26 +55,13 @@ Date: 10/06/2025
         <p>&copy; 2025 Strike a Chord. All Rights Reserved.</p>
         <p><a href="mailto:lessons@strikeachord.net">lessons@strikeachord.net</a></p>
     </footer>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
-
-
-Links
-
-/* Logo */
-.logo {
-    max-width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
-.section-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 15px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
