@@ -1,4 +1,4 @@
-/* =========================
+/* ========================= 
    GLOBAL STYLES
    ========================= */
 * {
@@ -7,12 +7,49 @@
     padding: 0;
 }
 
+:root {
+    --primary-color: #222;
+    --accent-color: #0066cc;
+    --light-bg: #f4f4f4;
+    --text-color: #333;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     background-color: #fff;
-    color: #333;
+    color: var(--text-color);
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+a:focus,
+button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: top 0.3s;
+    z-index: 2000;
+}
+
+.skip-link:focus {
+    top: 10px;
 }
 
 /* =========================
@@ -24,8 +61,12 @@ body {
     background-color: #fff;
     padding: 10px 15px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow);
     z-index: 1000;
+}
+
+.header-container {
+    position: relative;
 }
 
 .logo {
@@ -35,13 +76,22 @@ body {
     margin: 0 auto 10px auto;
 }
 
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
 /* =========================
    NAVIGATION
    ========================= */
 .main-nav {
     display: none; /* hidden by default for mobile */
     flex-direction: column;
-    background-color: #444;
+    background-color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style-type: none;
 }
 
 .main-nav a {
@@ -49,10 +99,12 @@ body {
     text-decoration: none;
     padding: 12px 15px;
     display: block;
+    transition: background-color 0.3s;
 }
 
-.main-nav a:hover {
-    background-color: #333;
+.main-nav a:hover,
+.main-nav a:focus {
+    background-color: #111;
 }
 
 /* Hamburger Button */
@@ -61,7 +113,7 @@ body {
     font-size: 2rem;
     background: none;
     border: none;
-    color: #444;
+    color: var(--primary-color);
     cursor: pointer;
     position: absolute;
     top: 15px;
@@ -81,23 +133,79 @@ main, section {
     padding: 20px;
 }
 
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
 .section-img {
     max-width: 100%; 
     height: auto;
     display: block;
     margin: 15px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* =========================
+   ASIDE (NEWSLETTER)
+   ========================= */
+.newsletter {
+    background-color: var(--light-bg);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    width: 70%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #004c99;
 }
 
 /* =========================
    FOOTER
    ========================= */
 footer {
-    background-color: #f4f4f4;
+    background-color: var(--light-bg);
     text-align: center;
-    padding: 15px;
+    padding: 25px 0;
     font-size: 0.9em;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* =========================
@@ -115,11 +223,19 @@ footer {
         display: flex !important; /* always visible on larger screens */
         flex-direction: row;
         justify-content: space-around;
-        background-color: #444;
+        background-color: var(--primary-color);
+    }
+
+    .main-nav a {
+        padding: 15px 20px;
     }
 
     .menu-toggle {
         display: none; /* hide hamburger on larger screens */
+    }
+
+    .newsletter input[type="email"] {
+        width: 250px;
     }
 }
 
@@ -136,4 +252,278 @@ footer {
     .main-nav a {
         padding: 10px 12px;
     }
+
+    .newsletter input[type="email"] {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 90%;
+    }
 }
+/* ========================= 
+   GLOBAL STYLES
+   ========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #222;
+    --accent-color: #0066cc;
+    --light-bg: #f4f4f4;
+    --text-color: #333;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+a:focus,
+button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: top 0.3s;
+    z-index: 2000;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 10px 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow);
+    z-index: 1000;
+}
+
+.header-container {
+    position: relative;
+}
+
+.logo {
+    max-width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+.main-nav {
+    display: none; /* hidden by default for mobile */
+    flex-direction: column;
+    background-color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style-type: none;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background-color: #111;
+}
+
+/* Hamburger Button */
+.menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+}
+
+/* Show nav when active */
+.main-nav.active {
+    display: flex;
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+main, section {
+    padding: 20px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.section-img {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* =========================
+   ASIDE (NEWSLETTER)
+   ========================= */
+.newsletter {
+    background-color: var(--light-bg);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    width: 70%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #004c99;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    background-color: var(--light-bg);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   MEDIA QUERIES
+   ========================= */
+
+/* Tablet and above */
+@media (min-width: 768px) {
+    main {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .main-nav {
+        display: flex !important; /* always visible on larger screens */
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: var(--primary-color);
+    }
+
+    .main-nav a {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: none; /* hide hamburger on larger screens */
+    }
+
+    .newsletter input[type="email"] {
+        width: 250px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    main, section {
+        padding: 10px;
+    }
+
+    .logo {
+        max-width: 100px;
+    }
+
+    .main-nav a {
+        padding: 10px 12px;
+    }
+
+    .newsletter input[type="email"] {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 90%;
+    }
+}
+
